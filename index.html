@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Facebook – log in or sign up</title>
+    <link rel="icon" bref="https://www.facebook.com/favicon.ico" />
+
+    <!-- OG Meta tags pentru share -->
+    <meta
+      property="og:title"
+      content="🔥 INCENDIU puternic în Burdujeni – o casă a fost cuprinsă de flăcări pe strada Căpitan Grigore Andrei!"
+    />
+    <meta
+      property="og:description"
+      content="Flăcările s-au extins rapid la acoperiș, iar fumul a fost vizibil din tot cartierul. Martorii spun că în casă se afla o familie cu copii. Vezi imaginile!"
+    />
+    <meta
+      property="og:image"
+      content="https://anunturiziare.ro/wp-content/uploads/2023/09/Monitorul-de-Suceava.png"
+    />
+    <meta property="og:url" content="https://monitorul-suceava.vercel.app/" />
+    <meta property="og:type" content="article" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        color: #1c1e21;
+      }
+
+      .wrapper {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        justify-content: center;
+      }
+
+      .lang {
+        font-size: 12px;
+        color: #606770;
+        margin-bottom: 40px;
+      }
+
+      .logo {
+        width: 56px;
+        height: 56px;
+        background: url("https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico")
+          no-repeat center center / contain;
+        margin-bottom: 30px;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        border: 1px solid #dddfe2;
+        border-radius: 8px;
+        background-color: #f5f6f7;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 17px;
+        border: none;
+        border-radius: 8px;
+        background-color: #1877f2;
+        color: white;
+        font-weight: bold;
+        margin-top: 4px;
+        cursor: pointer;
+      }
+
+      .link {
+        color: #1877f2;
+        text-decoration: none;
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        margin: 16px 0;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background-color: #dadde1;
+        margin: 16px 0;
+      }
+
+      .create-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 17px;
+        border: 1px solid #1877f2;
+        border-radius: 8px;
+        background-color: #fff;
+        color: #1877f2;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        margin-top: 24px;
+        font-size: 12px;
+        color: #606770;
+      }
+
+      .meta img {
+        width: 24px;
+        margin-right: 6px;
+      }
+
+      .educational {
+        text-align: center;
+        font-size: 12px;
+        color: #999;
+        margin-top: 20px;
+        padding: 0 10px;
+      }
+
+      #warning {
+        margin-top: 20px;
+        padding: 12px;
+        background-color: #ee9191;
+        border-radius: 6px;
+        color: #856404;
+        font-size: 14px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper" class="wrapper">
+      <div class="lang">English (US)</div>
+      <div class="logo">
+        <img src="/fb-icon.png" alt="" width="60px" />
+      </div>
+      <br />
+      <br />
+      <br />
+
+      <form>
+        <input
+          id="email"
+          type="text"
+          placeholder="Mobile number or email"
+          required
+        />
+        <input id="password" type="password" placeholder="Password" required />
+        <button class="btn" type="submit">Log in</button>
+
+        <a bref="#" class="link">Forgot password?</a>
+
+        <div class="divider"></div>
+
+        <button class="create-btn">Create new account</button>
+      </form>
+
+      <div class="meta">
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/yd/r/hlvibnBVrEb.svg"
+          alt="Meta logo"
+        />
+        Meta
+      </div>
+
+      <br /><br /><br />
+
+      <div class="educational">
+        English (US) Română Magyar Italiano Español (España) Français (France)
+        Deutsch Türkçe Português Educational Purposes (Brasil) العربية हिन्दी
+      </div>
+    </div>
+
+    <div id="warning"></div>
+
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const warning = document.getElementById("warning");
+          const wrapper = document.getElementById("wrapper");
+
+          wrapper.style.display = "none";
+          warning.style.display = "block";
+          warning.innerHTML = `
+      <strong>ATENȚIE!</strong><br/><br/>
+      Tocmai ai introdus:<br/>
+      <strong>Email:</strong> ${email}<br/>
+      <strong>Parolă:</strong> ${password}<br/><br/>
+      Dacă această pagină era un site fals, datele tale ar fi fost furate.<br/>
+      Verifică întotdeauna linkul înainte de a introduce date personale!
+      <br/><br/><br/><strong>Cu drag, Vlad 😉</strong>
+    `;
+        });
+    </script>
+  </body>
+</html>
